@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sachgebiets",
+  "info": {
+    "singularName": "sachgebiet",
+    "pluralName": "sachgebiets",
+    "displayName": "Sachgebiet"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titel": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "TeaserText": {
+      "type": "text"
+    },
+    "Text": {
+      "type": "richtext"
+    },
+    "TeaserBild": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Bilder": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
