@@ -25,6 +25,12 @@
     "Text": {
       "type": "richtext"
     },
+    "Sachbearbeiter": {
+      "type": "string"
+    },
+    "Kontaktdaten": {
+      "type": "richtext"
+    },
     "TeaserBild": {
       "type": "media",
       "multiple": false,
