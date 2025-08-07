@@ -395,7 +395,7 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Schema.Attribute.DateTime;
@@ -404,7 +404,7 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     Datum: Schema.Attribute.Date &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     Kategorie: Schema.Attribute.Enumeration<
@@ -412,7 +412,7 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     locale: Schema.Attribute.String;
@@ -429,7 +429,7 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     TeaserBild: Schema.Attribute.Media<
@@ -437,7 +437,7 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     TeaserText: Schema.Attribute.Text &
@@ -487,7 +487,7 @@ export interface ApiSachgebietSachgebiet extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Schema.Attribute.DateTime;
@@ -523,7 +523,7 @@ export interface ApiSachgebietSachgebiet extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     TeaserText: Schema.Attribute.Text &
