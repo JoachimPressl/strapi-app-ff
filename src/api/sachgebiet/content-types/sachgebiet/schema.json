@@ -15,7 +15,7 @@
     }
   },
   "attributes": {
-    "Titel": {
+    "title": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -33,7 +33,7 @@
       },
       "required": true
     },
-    "TeaserText": {
+    "teaser": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
@@ -41,7 +41,7 @@
         }
       }
     },
-    "Text": {
+    "test": {
       "type": "richtext",
       "pluginOptions": {
         "i18n": {
@@ -49,7 +49,7 @@
         }
       }
     },
-    "Sachbearbeiter": {
+    "sachbearbeiter": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -57,7 +57,7 @@
         }
       }
     },
-    "Kontaktdaten": {
+    "contact": {
       "type": "richtext",
       "pluginOptions": {
         "i18n": {
@@ -65,7 +65,7 @@
         }
       }
     },
-    "TeaserBild": {
+    "teaser_image": {
       "type": "media",
       "pluginOptions": {
         "i18n": {
@@ -80,7 +80,7 @@
         "audios"
       ]
     },
-    "Bilder": {
+    "images": {
       "type": "media",
       "pluginOptions": {
         "i18n": {
