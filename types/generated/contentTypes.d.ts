@@ -389,9 +389,8 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    Bilder: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
+    category: Schema.Attribute.Enumeration<
+      ['Einsatz', '\u00DCbung', 'Veranstaltung']
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -401,14 +400,15 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Datum: Schema.Attribute.Date &
+    date: Schema.Attribute.Date &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
         };
       }>;
-    Kategorie: Schema.Attribute.Enumeration<
-      ['Einsatz', '\u00DCbung', 'Veranstaltung']
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -419,12 +419,14 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::news.news'>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Tags: Schema.Attribute.Enumeration<
+    tags: Schema.Attribute.Enumeration<
       ['Brand', 'Menschenrettung', 'Technischer Einsatz']
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -432,7 +434,13 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
-    TeaserBild: Schema.Attribute.Media<
+    teaser: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    teaser_image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -440,19 +448,13 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
-    TeaserText: Schema.Attribute.Text &
+    text: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Text: Schema.Attribute.RichText &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Titel: Schema.Attribute.String &
+    title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -481,7 +483,16 @@ export interface ApiSachgebietSachgebiet extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    Bilder: Schema.Attribute.Media<
+    contact: Schema.Attribute.RichText &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     > &
@@ -490,22 +501,13 @@ export interface ApiSachgebietSachgebiet extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Kontaktdaten: Schema.Attribute.RichText &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::sachgebiet.sachgebiet'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    Sachbearbeiter: Schema.Attribute.String &
+    sachbearbeiter: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -518,7 +520,13 @@ export interface ApiSachgebietSachgebiet extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    TeaserBild: Schema.Attribute.Media<
+    teaser: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    teaser_image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -526,19 +534,13 @@ export interface ApiSachgebietSachgebiet extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
-    TeaserText: Schema.Attribute.Text &
+    test: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Text: Schema.Attribute.RichText &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Titel: Schema.Attribute.String &
+    title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
