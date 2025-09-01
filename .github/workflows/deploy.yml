@@ -16,8 +16,11 @@ jobs:
         with: 
           node-version: 20 
 
-      - run: npm install 
-      - run: npm run build 
+      - name: Installing Dependecies
+        run: npm ci
+
+      - name: Creating Build
+        run: npm run build 
 
       - name: Get SSH Key and set permission 
         run: | 
@@ -28,4 +31,4 @@ jobs:
         run: scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -r \dist package.json package-lock.json \${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_WORK_DIR }} 
 
       - name: Restart Server 
-        run: ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.SSH_WORK_DIR }} && npm install && mittnitectl job restart"
+        run: ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.SSH_WORK_DIR }} && npm ci && mittnitectl job restart"
