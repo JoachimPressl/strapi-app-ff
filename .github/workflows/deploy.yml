@@ -28,7 +28,7 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa 
 
       - name: Deploy using SCP 
-        run: scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -r build dist package.json package-lock.json \${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_WORK_DIR }} 
+        run: scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -r dist package.json package-lock.json \${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_WORK_DIR }} 
 
       - name: Restart Server 
         run: ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.SSH_WORK_DIR }} && npm ci && mittnitectl job restart"
