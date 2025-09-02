@@ -42,7 +42,7 @@
         }
       }
     },
-    "test": {
+    "text": {
       "type": "richtext",
       "pluginOptions": {
         "i18n": {

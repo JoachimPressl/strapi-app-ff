@@ -534,7 +534,7 @@ export interface ApiSachgebietSachgebiet extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
-    test: Schema.Attribute.RichText &
+    text: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
