@@ -419,9 +419,8 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::news.news'>;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.String &
+    slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -514,7 +513,7 @@ export interface ApiSachgebietSachgebiet extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    slug: Schema.Attribute.String &
+    slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
