@@ -60,30 +60,14 @@
       "required": true
     },
     "category": {
-      "type": "enumeration",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "enum": [
-        "Einsatz",
-        "Übung",
-        "Veranstaltung"
-      ]
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::categorie.categorie"
     },
     "tags": {
-      "type": "enumeration",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "enum": [
-        "Brand",
-        "Menschenrettung",
-        "Technischer Einsatz"
-      ]
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
     },
     "teaser_image": {
       "type": "media",
