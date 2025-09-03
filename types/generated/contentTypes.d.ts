@@ -376,7 +376,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiCategorieCategorie extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
-    displayName: 'Category';
+    displayName: 'Categories';
     pluralName: 'categories';
     singularName: 'categorie';
   };
@@ -404,6 +404,13 @@ export interface ApiCategorieCategorie extends Struct.CollectionTypeSchema {
       'api::categorie.categorie'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -497,10 +504,80 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSachbearbeiterSachbearbeiter
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'sachbearbeiters';
+  info: {
+    displayName: 'Sachbearbeiter';
+    pluralName: 'sachbearbeiters';
+    singularName: 'sachbearbeiter';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    email: Schema.Attribute.Email &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sachbearbeiter.sachbearbeiter'
+    >;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    tel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSachgebietSachgebiet extends Struct.CollectionTypeSchema {
   collectionName: 'sachgebiets';
   info: {
-    displayName: 'Sachgebiet';
+    displayName: 'Sachgebiete';
     pluralName: 'sachgebiets';
     singularName: 'sachgebiet';
   };
@@ -513,12 +590,6 @@ export interface ApiSachgebietSachgebiet extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    contact: Schema.Attribute.RichText &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -537,12 +608,10 @@ export interface ApiSachgebietSachgebiet extends Struct.CollectionTypeSchema {
       'api::sachgebiet.sachgebiet'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    sachbearbeiter: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    sachbearbeiter: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::sachbearbeiter.sachbearbeiter'
+    >;
     slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -586,7 +655,7 @@ export interface ApiSachgebietSachgebiet extends Struct.CollectionTypeSchema {
 export interface ApiTagTag extends Struct.CollectionTypeSchema {
   collectionName: 'tags';
   info: {
-    displayName: 'Tag';
+    displayName: 'Tags';
     pluralName: 'tags';
     singularName: 'tag';
   };
@@ -611,6 +680,13 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'>;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -1135,6 +1211,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::categorie.categorie': ApiCategorieCategorie;
       'api::news.news': ApiNewsNews;
+      'api::sachbearbeiter.sachbearbeiter': ApiSachbearbeiterSachbearbeiter;
       'api::sachgebiet.sachgebiet': ApiSachgebietSachgebiet;
       'api::tag.tag': ApiTagTag;
       'plugin::content-releases.release': PluginContentReleasesRelease;

@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "sachgebiets",
+  "collectionName": "sachbearbeiters",
   "info": {
-    "singularName": "sachgebiet",
-    "pluralName": "sachgebiets",
-    "displayName": "Sachgebiete"
+    "singularName": "sachbearbeiter",
+    "pluralName": "sachbearbeiters",
+    "displayName": "Sachbearbeiter"
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +15,7 @@
     }
   },
   "attributes": {
-    "title": {
+    "name": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -31,10 +31,10 @@
           "localized": true
         }
       },
-      "targetField": "title",
+      "targetField": "name",
       "required": true
     },
-    "teaser": {
+    "description": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
@@ -42,47 +42,33 @@
         }
       }
     },
-    "text": {
-      "type": "richtext",
+    "email": {
+      "type": "email",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "sachbearbeiter": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::sachbearbeiter.sachbearbeiter"
+    "tel": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
-    "teaser_image": {
+    "image": {
       "type": "media",
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
       "multiple": false,
       "allowedTypes": [
         "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "images": {
-      "type": "media",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "multiple": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "files"
       ]
     }
   }

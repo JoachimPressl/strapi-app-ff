@@ -4,7 +4,7 @@
   "info": {
     "singularName": "tag",
     "pluralName": "tags",
-    "displayName": "Tag"
+    "displayName": "Tags"
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +22,16 @@
           "localized": true
         }
       },
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "targetField": "title",
       "required": true
     },
     "description": {
