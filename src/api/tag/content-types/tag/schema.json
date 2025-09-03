@@ -41,6 +41,11 @@
           "localized": true
         }
       }
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::categorie.categorie"
     }
   }
 }

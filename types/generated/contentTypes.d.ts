@@ -668,6 +668,10 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    categories: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::categorie.categorie'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
