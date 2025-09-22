@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_text_header_titles",
+  "info": {
+    "displayName": "Header Title",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "general": {
+      "type": "component",
+      "component": "meta.general",
+      "repeatable": false
+    },
+    "layout": {
+      "type": "component",
+      "component": "meta.layout",
+      "repeatable": false
+    },
+    "text": {
+      "type": "blocks"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "align": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ]
+    }
+  },
+  "config": {}
+}

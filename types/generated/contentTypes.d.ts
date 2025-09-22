@@ -511,6 +511,54 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPagePage extends Struct.SingleTypeSchema {
+  collectionName: 'pages';
+  info: {
+    displayName: 'Startseite';
+    pluralName: 'pages';
+    singularName: 'page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    ContentElemente: Schema.Attribute.DynamicZone<
+      ['text.text-and-image', 'text.header-title']
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSachbearbeiterSachbearbeiter
   extends Struct.CollectionTypeSchema {
   collectionName: 'sachbearbeiters';
@@ -1229,6 +1277,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::categorie.categorie': ApiCategorieCategorie;
       'api::news.news': ApiNewsNews;
+      'api::page.page': ApiPagePage;
       'api::sachbearbeiter.sachbearbeiter': ApiSachbearbeiterSachbearbeiter;
       'api::sachgebiet.sachgebiet': ApiSachgebietSachgebiet;
       'api::tag.tag': ApiTagTag;

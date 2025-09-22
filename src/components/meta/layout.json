@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_meta_layouts",
+  "info": {
+    "displayName": "Layout",
+    "icon": "crop"
+  },
+  "options": {},
+  "attributes": {
+    "space_before": {
+      "type": "enumeration",
+      "enum": [
+        "extra small",
+        "small",
+        "medium",
+        "large",
+        "extra large"
+      ]
+    },
+    "space_after": {
+      "type": "enumeration",
+      "enum": [
+        "extra small",
+        "small",
+        "medium",
+        "large",
+        "extra large"
+      ]
+    },
+    "background_color": {
+      "type": "enumeration",
+      "enum": [
+        "dark",
+        "light",
+        "primary"
+      ]
+    }
+  },
+  "config": {}
+}
