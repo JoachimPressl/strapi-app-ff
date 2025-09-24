@@ -15,6 +15,17 @@
     }
   },
   "attributes": {
+    "general": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "meta.general",
+      "repeatable": false,
+      "required": true
+    },
     "ContentElemente": {
       "type": "dynamiczone",
       "pluginOptions": {
