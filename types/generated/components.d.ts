@@ -15,56 +15,125 @@ export interface MetaGeneral extends Struct.ComponentSchema {
 export interface MetaLayout extends Struct.ComponentSchema {
   collectionName: 'components_meta_layouts';
   info: {
-    displayName: 'Layout';
+    displayName: 'layout';
     icon: 'crop';
   };
   attributes: {
     background_color: Schema.Attribute.Enumeration<
-      ['dark', 'light', 'primary']
-    >;
+      ['default', 'dark', 'light', 'primary']
+    > &
+      Schema.Attribute.DefaultTo<'default'>;
     space_after: Schema.Attribute.Enumeration<
-      ['extra small', 'small', 'medium', 'large', 'extra large']
-    >;
+      ['default', 'extra small', 'small', 'medium', 'large', 'extra large']
+    > &
+      Schema.Attribute.DefaultTo<'default'>;
     space_before: Schema.Attribute.Enumeration<
-      ['extra small', 'small', 'medium', 'large', 'extra large']
-    >;
+      ['default', 'extra small', 'small', 'medium', 'large', 'extra large']
+    > &
+      Schema.Attribute.DefaultTo<'default'>;
+    template: Schema.Attribute.Enumeration<['default', 'secondary']> &
+      Schema.Attribute.DefaultTo<'default'>;
+  };
+}
+
+export interface TextCard extends Struct.ComponentSchema {
+  collectionName: 'components_text_cards';
+  info: {
+    displayName: 'card';
+    icon: 'grid';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    text: Schema.Attribute.RichText;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface TextCardGroup extends Struct.ComponentSchema {
+  collectionName: 'components_text_card_groups';
+  info: {
+    displayName: 'card_group';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'text.card', true>;
+    general: Schema.Attribute.Component<'meta.general', false> &
+      Schema.Attribute.Required;
+    layout: Schema.Attribute.Component<'meta.layout', false> &
+      Schema.Attribute.Required;
   };
 }
 
 export interface TextHeaderTitle extends Struct.ComponentSchema {
   collectionName: 'components_text_header_titles';
   info: {
-    displayName: 'Header Title';
+    displayName: 'header_title';
     icon: 'picture';
   };
   attributes: {
     align: Schema.Attribute.Enumeration<['left', 'right']>;
-    general: Schema.Attribute.Component<'meta.general', false>;
+    general: Schema.Attribute.Component<'meta.general', false> &
+      Schema.Attribute.Required;
     images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
-    layout: Schema.Attribute.Component<'meta.layout', false>;
-    text: Schema.Attribute.Blocks;
+    layout: Schema.Attribute.Component<'meta.layout', false> &
+      Schema.Attribute.Required;
+    text: Schema.Attribute.RichText;
+  };
+}
+
+export interface TextImages extends Struct.ComponentSchema {
+  collectionName: 'components_text_images';
+  info: {
+    displayName: 'images';
+    icon: 'landscape';
+  };
+  attributes: {
+    general: Schema.Attribute.Component<'meta.general', false> &
+      Schema.Attribute.Required;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    layout: Schema.Attribute.Component<'meta.layout', false> &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface TextText extends Struct.ComponentSchema {
+  collectionName: 'components_text_texts';
+  info: {
+    displayName: 'text';
+    icon: 'filter';
+  };
+  attributes: {
+    general: Schema.Attribute.Component<'meta.general', false> &
+      Schema.Attribute.Required;
+    layout: Schema.Attribute.Component<'meta.layout', false> &
+      Schema.Attribute.Required;
+    text: Schema.Attribute.RichText;
   };
 }
 
 export interface TextTextAndImage extends Struct.ComponentSchema {
   collectionName: 'components_text_text_and_images';
   info: {
-    displayName: 'Text and Image';
+    displayName: 'text_and_image';
     icon: 'picture';
   };
   attributes: {
     align: Schema.Attribute.Enumeration<['left', 'right']> &
       Schema.Attribute.DefaultTo<'left'>;
+    general: Schema.Attribute.Component<'meta.general', false> &
+      Schema.Attribute.Required;
     images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
-    subtitle: Schema.Attribute.String;
-    text: Schema.Attribute.Blocks;
-    title: Schema.Attribute.String;
+    layout: Schema.Attribute.Component<'meta.layout', false> &
+      Schema.Attribute.Required;
+    text: Schema.Attribute.RichText;
   };
 }
 
@@ -73,7 +142,11 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'meta.general': MetaGeneral;
       'meta.layout': MetaLayout;
+      'text.card': TextCard;
+      'text.card-group': TextCardGroup;
       'text.header-title': TextHeaderTitle;
+      'text.images': TextImages;
+      'text.text': TextText;
       'text.text-and-image': TextTextAndImage;
     }
   }

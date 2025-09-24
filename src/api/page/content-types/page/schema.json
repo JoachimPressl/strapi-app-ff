@@ -15,22 +15,6 @@
     }
   },
   "attributes": {
-    "title": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "description": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "ContentElemente": {
       "type": "dynamiczone",
       "pluginOptions": {
@@ -40,7 +24,10 @@
       },
       "components": [
         "text.text-and-image",
-        "text.header-title"
+        "text.header-title",
+        "text.text",
+        "text.images",
+        "text.card-group"
       ]
     }
   }

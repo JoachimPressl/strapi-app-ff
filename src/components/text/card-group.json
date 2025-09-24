@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_text_card_groups",
+  "info": {
+    "displayName": "card_group"
+  },
+  "options": {},
+  "attributes": {
+    "general": {
+      "type": "component",
+      "component": "meta.general",
+      "repeatable": false,
+      "required": true
+    },
+    "layout": {
+      "type": "component",
+      "component": "meta.layout",
+      "repeatable": false,
+      "required": true
+    },
+    "cards": {
+      "type": "component",
+      "component": "text.card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

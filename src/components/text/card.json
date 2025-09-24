@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_text_cards",
+  "info": {
+    "displayName": "card",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

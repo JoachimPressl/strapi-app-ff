@@ -1,14 +1,16 @@
 {
   "collectionName": "components_meta_layouts",
   "info": {
-    "displayName": "Layout",
+    "displayName": "layout",
     "icon": "crop"
   },
   "options": {},
   "attributes": {
     "space_before": {
       "type": "enumeration",
+      "default": "default",
       "enum": [
+        "default",
         "extra small",
         "small",
         "medium",
@@ -18,7 +20,9 @@
     },
     "space_after": {
       "type": "enumeration",
+      "default": "default",
       "enum": [
+        "default",
         "extra small",
         "small",
         "medium",
@@ -28,10 +32,20 @@
     },
     "background_color": {
       "type": "enumeration",
+      "default": "default",
       "enum": [
+        "default",
         "dark",
         "light",
         "primary"
+      ]
+    },
+    "template": {
+      "type": "enumeration",
+      "default": "default",
+      "enum": [
+        "default",
+        "secondary"
       ]
     }
   },

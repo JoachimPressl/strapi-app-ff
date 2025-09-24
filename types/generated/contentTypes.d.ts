@@ -528,7 +528,13 @@ export interface ApiPagePage extends Struct.SingleTypeSchema {
   };
   attributes: {
     ContentElemente: Schema.Attribute.DynamicZone<
-      ['text.text-and-image', 'text.header-title']
+      [
+        'text.text-and-image',
+        'text.header-title',
+        'text.text',
+        'text.images',
+        'text.card-group',
+      ]
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -538,21 +544,9 @@ export interface ApiPagePage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'>;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

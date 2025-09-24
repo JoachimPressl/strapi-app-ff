@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_text_header_titles",
+  "collectionName": "components_text_images",
   "info": {
-    "displayName": "header_title",
-    "icon": "picture"
+    "displayName": "images",
+    "icon": "landscape"
   },
   "options": {},
   "attributes": {
@@ -18,9 +18,6 @@
       "repeatable": false,
       "required": true
     },
-    "text": {
-      "type": "richtext"
-    },
     "images": {
       "type": "media",
       "multiple": true,
@@ -29,13 +26,6 @@
         "files",
         "videos",
         "audios"
-      ]
-    },
-    "align": {
-      "type": "enumeration",
-      "enum": [
-        "left",
-        "right"
       ]
     }
   },

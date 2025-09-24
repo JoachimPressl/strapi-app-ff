@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_text_header_titles",
+  "collectionName": "components_text_texts",
   "info": {
-    "displayName": "header_title",
-    "icon": "picture"
+    "displayName": "text",
+    "icon": "filter"
   },
   "options": {},
   "attributes": {
@@ -20,23 +20,6 @@
     },
     "text": {
       "type": "richtext"
-    },
-    "images": {
-      "type": "media",
-      "multiple": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "align": {
-      "type": "enumeration",
-      "enum": [
-        "left",
-        "right"
-      ]
     }
   },
   "config": {}
