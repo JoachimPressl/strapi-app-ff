@@ -480,19 +480,7 @@ export interface ApiFahrzeugFahrzeug extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
-    technical_specification: Schema.Attribute.RichText &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     technical_specification_neu: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    text: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -576,12 +564,6 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
-        };
-      }>;
-    text: Schema.Attribute.RichText &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
         };
       }>;
     text_neu: Schema.Attribute.Blocks &
@@ -703,6 +685,10 @@ export interface ApiSachbearbeiterSachbearbeiter
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    sachgebietes: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::sachgebiet.sachgebiet'
+    >;
     slug: Schema.Attribute.UID<'name'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -756,8 +742,8 @@ export interface ApiSachgebietSachgebiet extends Struct.CollectionTypeSchema {
       'api::sachgebiet.sachgebiet'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    sachbearbeiter: Schema.Attribute.Relation<
-      'oneToOne',
+    sachbearbeiters: Schema.Attribute.Relation<
+      'manyToMany',
       'api::sachbearbeiter.sachbearbeiter'
     >;
     slug: Schema.Attribute.UID<'title'> &
@@ -779,12 +765,6 @@ export interface ApiSachgebietSachgebiet extends Struct.CollectionTypeSchema {
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
-        };
-      }>;
-    text: Schema.Attribute.RichText &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
         };
       }>;
     text_neu: Schema.Attribute.Blocks &

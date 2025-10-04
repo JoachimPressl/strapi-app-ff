@@ -19,9 +19,6 @@
     "title": {
       "type": "string"
     },
-    "text": {
-      "type": "richtext"
-    },
     "text_neu": {
       "type": "blocks"
     }

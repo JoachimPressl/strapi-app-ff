@@ -70,6 +70,12 @@
         "images",
         "files"
       ]
+    },
+    "sachgebietes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sachgebiet.sachgebiet",
+      "inversedBy": "sachbearbeiters"
     }
   }
 }

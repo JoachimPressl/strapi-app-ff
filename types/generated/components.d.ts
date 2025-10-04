@@ -46,7 +46,6 @@ export interface TextCard extends Struct.ComponentSchema {
   };
   attributes: {
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    text: Schema.Attribute.RichText;
     text_neu: Schema.Attribute.Blocks;
     title: Schema.Attribute.String;
   };
@@ -82,7 +81,6 @@ export interface TextHeaderTitle extends Struct.ComponentSchema {
     >;
     layout: Schema.Attribute.Component<'meta.layout', false> &
       Schema.Attribute.Required;
-    text: Schema.Attribute.RichText;
     text_neu: Schema.Attribute.Blocks;
   };
 }
@@ -116,7 +114,6 @@ export interface TextText extends Struct.ComponentSchema {
       Schema.Attribute.Required;
     layout: Schema.Attribute.Component<'meta.layout', false> &
       Schema.Attribute.Required;
-    text: Schema.Attribute.RichText;
     text_neu: Schema.Attribute.Blocks;
   };
 }
@@ -138,7 +135,6 @@ export interface TextTextAndImage extends Struct.ComponentSchema {
     >;
     layout: Schema.Attribute.Component<'meta.layout', false> &
       Schema.Attribute.Required;
-    text: Schema.Attribute.RichText;
     text_neu: Schema.Attribute.Blocks;
   };
 }

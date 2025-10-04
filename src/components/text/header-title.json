@@ -18,9 +18,6 @@
       "repeatable": false,
       "required": true
     },
-    "text": {
-      "type": "richtext"
-    },
     "text_neu": {
       "type": "blocks"
     },

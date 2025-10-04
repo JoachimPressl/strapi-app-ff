@@ -42,14 +42,6 @@
         }
       }
     },
-    "text": {
-      "type": "richtext",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "text_neu": {
       "type": "blocks",
       "pluginOptions": {
@@ -58,10 +50,11 @@
         }
       }
     },
-    "sachbearbeiter": {
+    "sachbearbeiters": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::sachbearbeiter.sachbearbeiter"
+      "relation": "manyToMany",
+      "target": "api::sachbearbeiter.sachbearbeiter",
+      "mappedBy": "sachgebietes"
     },
     "teaser_image": {
       "type": "media",

@@ -42,14 +42,6 @@
         }
       }
     },
-    "text": {
-      "type": "richtext",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "text_neu": {
       "type": "blocks",
       "pluginOptions": {
