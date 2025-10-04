@@ -486,7 +486,19 @@ export interface ApiFahrzeugFahrzeug extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    technical_specification_neu: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     text: Schema.Attribute.RichText &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    text_neu: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -567,6 +579,12 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
         };
       }>;
     text: Schema.Attribute.RichText &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    text_neu: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -764,6 +782,12 @@ export interface ApiSachgebietSachgebiet extends Struct.CollectionTypeSchema {
         };
       }>;
     text: Schema.Attribute.RichText &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    text_neu: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

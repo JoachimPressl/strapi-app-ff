@@ -47,6 +47,14 @@
         "default",
         "secondary"
       ]
+    },
+    "frame": {
+      "type": "enumeration",
+      "default": "frame",
+      "enum": [
+        "frame",
+        "no frame"
+      ]
     }
   },
   "config": {}

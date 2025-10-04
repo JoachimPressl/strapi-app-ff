@@ -50,6 +50,14 @@
         }
       }
     },
+    "text_neu": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
     "date": {
       "type": "date",
       "pluginOptions": {

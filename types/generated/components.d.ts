@@ -23,6 +23,8 @@ export interface MetaLayout extends Struct.ComponentSchema {
       ['default', 'dark', 'light', 'primary']
     > &
       Schema.Attribute.DefaultTo<'default'>;
+    frame: Schema.Attribute.Enumeration<['frame', 'no frame']> &
+      Schema.Attribute.DefaultTo<'frame'>;
     space_after: Schema.Attribute.Enumeration<
       ['default', 'extra small', 'small', 'medium', 'large', 'extra large']
     > &
@@ -45,6 +47,7 @@ export interface TextCard extends Struct.ComponentSchema {
   attributes: {
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     text: Schema.Attribute.RichText;
+    text_neu: Schema.Attribute.Blocks;
     title: Schema.Attribute.String;
   };
 }
@@ -80,6 +83,7 @@ export interface TextHeaderTitle extends Struct.ComponentSchema {
     layout: Schema.Attribute.Component<'meta.layout', false> &
       Schema.Attribute.Required;
     text: Schema.Attribute.RichText;
+    text_neu: Schema.Attribute.Blocks;
   };
 }
 
@@ -113,6 +117,7 @@ export interface TextText extends Struct.ComponentSchema {
     layout: Schema.Attribute.Component<'meta.layout', false> &
       Schema.Attribute.Required;
     text: Schema.Attribute.RichText;
+    text_neu: Schema.Attribute.Blocks;
   };
 }
 
@@ -134,6 +139,7 @@ export interface TextTextAndImage extends Struct.ComponentSchema {
     layout: Schema.Attribute.Component<'meta.layout', false> &
       Schema.Attribute.Required;
     text: Schema.Attribute.RichText;
+    text_neu: Schema.Attribute.Blocks;
   };
 }
 

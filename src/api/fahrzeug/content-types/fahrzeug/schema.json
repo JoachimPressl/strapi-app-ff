@@ -45,8 +45,24 @@
         }
       }
     },
+    "text_neu": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
     "technical_specification": {
       "type": "richtext",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "technical_specification_neu": {
+      "type": "blocks",
       "pluginOptions": {
         "i18n": {
           "localized": true

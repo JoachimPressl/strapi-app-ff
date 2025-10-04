@@ -21,6 +21,9 @@
     },
     "text": {
       "type": "richtext"
+    },
+    "text_neu": {
+      "type": "blocks"
     }
   },
   "config": {}
