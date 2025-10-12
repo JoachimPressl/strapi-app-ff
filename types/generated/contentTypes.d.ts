@@ -537,13 +537,13 @@ export interface ApiFahrzeugFahrzeug extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
-    technical_specification_neu: Schema.Attribute.Blocks &
+    technical_specification: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    text_neu: Schema.Attribute.Blocks &
+    text: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
