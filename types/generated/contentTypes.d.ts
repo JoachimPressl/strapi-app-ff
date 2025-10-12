@@ -507,7 +507,7 @@ export interface ApiFahrzeugFahrzeug extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    discription: Schema.Attribute.Text &
+    description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -660,6 +660,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'content.image',
         'content.headline-image',
         'content.card-group',
+        'content.news-list',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

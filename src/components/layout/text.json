@@ -12,6 +12,15 @@
     "text": {
       "type": "blocks"
     },
+    "align": {
+      "type": "enumeration",
+      "default": "left",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
+    },
     "buttons": {
       "type": "component",
       "component": "layout.button",
