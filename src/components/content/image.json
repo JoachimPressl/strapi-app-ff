@@ -1,7 +1,7 @@
 {
   "collectionName": "components_content_images",
   "info": {
-    "displayName": "Image",
+    "displayName": "Images",
     "icon": "picture"
   },
   "options": {},
@@ -11,6 +11,11 @@
       "component": "layout.image",
       "repeatable": true,
       "required": true
+    },
+    "container": {
+      "type": "component",
+      "component": "layout.container",
+      "repeatable": false
     },
     "appearance": {
       "type": "component",
