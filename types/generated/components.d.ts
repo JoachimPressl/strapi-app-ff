@@ -35,12 +35,13 @@ export interface ContentHeadlineImage extends Struct.ComponentSchema {
 export interface ContentImage extends Struct.ComponentSchema {
   collectionName: 'components_content_images';
   info: {
-    displayName: 'Image';
+    displayName: 'Images';
     icon: 'picture';
   };
   attributes: {
     appearance: Schema.Attribute.Component<'layout.appearance', false> &
       Schema.Attribute.Required;
+    container: Schema.Attribute.Component<'layout.container', false>;
     images: Schema.Attribute.Component<'layout.image', true> &
       Schema.Attribute.Required;
   };
