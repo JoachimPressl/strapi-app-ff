@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_layout_buttons",
+  "info": {
+    "displayName": "button",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "target": {
+      "type": "enumeration",
+      "default": "default",
+      "enum": [
+        "default",
+        "new window"
+      ]
+    },
+    "style": {
+      "type": "enumeration",
+      "default": "default",
+      "enum": [
+        "default",
+        "primary",
+        "secondary",
+        "tertairy"
+      ]
+    }
+  },
+  "config": {}
+}

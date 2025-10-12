@@ -1,44 +1,42 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "pages",
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "Startseite"
+    "displayName": "Page"
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
-    "general": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "meta.general",
-      "repeatable": false,
-      "required": true
+    "title": {
+      "type": "string"
     },
-    "ContentElemente": {
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "seo_title": {
+      "type": "string"
+    },
+    "seo_description": {
+      "type": "text"
+    },
+    "pages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::page.page"
+    },
+    "content": {
       "type": "dynamiczone",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
       "components": [
-        "text.text-and-image",
-        "text.header-title",
-        "text.text",
-        "text.images",
-        "text.card-group"
+        "content.text",
+        "content.text-and-image",
+        "content.image",
+        "content.headline-image",
+        "content.card-group"
       ]
     }
   }

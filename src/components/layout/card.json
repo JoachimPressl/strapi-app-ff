@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_layout_cards",
+  "info": {
+    "displayName": "card",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "component",
+      "component": "layout.text",
+      "repeatable": false,
+      "required": true
+    },
+    "image": {
+      "type": "component",
+      "component": "layout.single-image",
+      "repeatable": false,
+      "required": true
+    },
+    "card_layout": {
+      "type": "enumeration",
+      "default": "default",
+      "enum": [
+        "default",
+        "rows 2",
+        "cols 2"
+      ]
+    }
+  },
+  "config": {}
+}

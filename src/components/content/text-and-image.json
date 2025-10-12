@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_content_text_and_images",
+  "info": {
+    "displayName": "text_and_image",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "component",
+      "component": "layout.text",
+      "repeatable": false,
+      "required": true
+    },
+    "images": {
+      "type": "component",
+      "component": "layout.image",
+      "repeatable": false,
+      "required": true
+    },
+    "container": {
+      "type": "component",
+      "component": "layout.container",
+      "repeatable": false,
+      "required": true
+    },
+    "appearance": {
+      "type": "component",
+      "component": "layout.appearance",
+      "repeatable": false,
+      "required": true
+    }
+  },
+  "config": {}
+}

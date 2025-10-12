@@ -37,7 +37,7 @@
         }
       }
     },
-    "text_neu": {
+    "text": {
       "type": "blocks",
       "pluginOptions": {
         "i18n": {
@@ -45,7 +45,7 @@
         }
       }
     },
-    "technical_specification_neu": {
+    "technical_specification": {
       "type": "blocks",
       "pluginOptions": {
         "i18n": {
