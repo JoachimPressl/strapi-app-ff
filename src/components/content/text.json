@@ -1,25 +1,22 @@
 {
-  "collectionName": "components_text_texts",
+  "collectionName": "components_content_texts",
   "info": {
     "displayName": "text",
     "icon": "filter"
   },
   "options": {},
   "attributes": {
-    "general": {
+    "text": {
       "type": "component",
-      "component": "meta.general",
+      "component": "layout.text",
       "repeatable": false,
       "required": true
     },
-    "layout": {
+    "appearance": {
       "type": "component",
-      "component": "meta.layout",
+      "component": "layout.appearance",
       "repeatable": false,
       "required": true
-    },
-    "text_neu": {
-      "type": "blocks"
     }
   },
   "config": {}

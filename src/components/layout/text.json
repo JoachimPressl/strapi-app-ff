@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_layout_texts",
+  "info": {
+    "displayName": "text",
+    "icon": "filter"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "blocks"
+    },
+    "buttons": {
+      "type": "component",
+      "component": "layout.button",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
