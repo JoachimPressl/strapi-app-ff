@@ -29,7 +29,7 @@
       "targetField": "title",
       "required": true
     },
-    "discription": {
+    "description": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
