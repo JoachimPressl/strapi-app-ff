@@ -660,6 +660,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'content.image',
         'content.headline-image',
         'content.card-group',
+        'content.news-list',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

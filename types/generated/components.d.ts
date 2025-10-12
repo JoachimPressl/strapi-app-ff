@@ -217,6 +217,8 @@ export interface LayoutText extends Struct.ComponentSchema {
     icon: 'filter';
   };
   attributes: {
+    align: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
+      Schema.Attribute.DefaultTo<'left'>;
     buttons: Schema.Attribute.Component<'layout.button', true>;
     text: Schema.Attribute.Blocks;
     title: Schema.Attribute.String;
