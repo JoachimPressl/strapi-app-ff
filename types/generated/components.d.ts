@@ -42,7 +42,7 @@ export interface ContentImage extends Struct.ComponentSchema {
     appearance: Schema.Attribute.Component<'layout.appearance', false> &
       Schema.Attribute.Required;
     container: Schema.Attribute.Component<'layout.container', false>;
-    images: Schema.Attribute.Component<'layout.image', true> &
+    images: Schema.Attribute.Component<'layout.image', false> &
       Schema.Attribute.Required;
   };
 }
@@ -54,7 +54,7 @@ export interface ContentNewsList extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
-    appaerance: Schema.Attribute.Component<'layout.appearance', false> &
+    appearance: Schema.Attribute.Component<'layout.appearance', false> &
       Schema.Attribute.Required;
     container: Schema.Attribute.Component<'layout.container', false> &
       Schema.Attribute.Required;
