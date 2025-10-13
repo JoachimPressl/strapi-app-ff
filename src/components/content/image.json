@@ -9,7 +9,7 @@
     "images": {
       "type": "component",
       "component": "layout.image",
-      "repeatable": true,
+      "repeatable": false,
       "required": true
     },
     "container": {
