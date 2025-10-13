@@ -15,7 +15,8 @@
     "container": {
       "type": "component",
       "component": "layout.container",
-      "repeatable": false
+      "repeatable": false,
+      "required": true
     },
     "appearance": {
       "type": "component",
