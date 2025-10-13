@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "news_items",
+  "collectionName": "fahrzeuge",
   "info": {
-    "singularName": "news",
-    "pluralName": "news-items",
-    "displayName": "News"
+    "singularName": "fahrzeug",
+    "pluralName": "fahrzeuge",
+    "displayName": "Fahrzeuge"
   },
   "options": {
     "draftAndPublish": true
@@ -26,15 +26,10 @@
     },
     "slug": {
       "type": "uid",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
       "targetField": "title",
       "required": true
     },
-    "teaser": {
+    "description": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
@@ -42,7 +37,7 @@
         }
       }
     },
-    "text_neu": {
+    "text": {
       "type": "blocks",
       "pluginOptions": {
         "i18n": {
@@ -50,24 +45,13 @@
         }
       }
     },
-    "date": {
-      "type": "date",
+    "technical_specification": {
+      "type": "blocks",
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
-      },
-      "required": true
-    },
-    "category": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::categorie.categorie"
-    },
-    "tags": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::tag.tag"
+      }
     },
     "teaser_image": {
       "type": "media",

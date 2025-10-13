@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "news_items",
+  "collectionName": "sachbearbeiters",
   "info": {
-    "singularName": "news",
-    "pluralName": "news-items",
-    "displayName": "News"
+    "singularName": "sachbearbeiter",
+    "pluralName": "sachbearbeiters",
+    "displayName": "Sachbearbeiter"
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +15,7 @@
     }
   },
   "attributes": {
-    "title": {
+    "name": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -31,10 +31,10 @@
           "localized": true
         }
       },
-      "targetField": "title",
+      "targetField": "name",
       "required": true
     },
-    "teaser": {
+    "description": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
@@ -42,62 +42,40 @@
         }
       }
     },
-    "text_neu": {
-      "type": "blocks",
+    "email": {
+      "type": "email",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "date": {
-      "type": "date",
+    "tel": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
-      },
-      "required": true
+      }
     },
-    "category": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::categorie.categorie"
-    },
-    "tags": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::tag.tag"
-    },
-    "teaser_image": {
+    "image": {
       "type": "media",
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
       "multiple": false,
       "allowedTypes": [
         "images",
-        "files",
-        "videos",
-        "audios"
+        "files"
       ]
     },
-    "images": {
-      "type": "media",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "multiple": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "sachgebietes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sachgebiet.sachgebiet",
+      "inversedBy": "sachbearbeiters"
     }
   }
 }

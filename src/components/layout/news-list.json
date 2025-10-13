@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_layout_news_lists",
+  "info": {
+    "displayName": "news_list",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "mode": {
+      "type": "enumeration",
+      "enum": [
+        "limit",
+        "pages"
+      ]
+    },
+    "pages_or_limit": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_layout_containers",
+  "info": {
+    "displayName": "container",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "default": "cols 2",
+      "enum": [
+        "col 1",
+        "cols 2",
+        "cols 3",
+        "cols 4"
+      ]
+    },
+    "align": {
+      "type": "enumeration",
+      "default": "left",
+      "enum": [
+        "left",
+        "right"
+      ]
+    }
+  },
+  "config": {}
+}

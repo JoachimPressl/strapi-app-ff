@@ -4,7 +4,7 @@
   "info": {
     "singularName": "sachgebiet",
     "pluralName": "sachgebiets",
-    "displayName": "Sachgebiet"
+    "displayName": "Sachgebiete"
   },
   "options": {
     "draftAndPublish": true
@@ -25,12 +25,13 @@
       "required": true
     },
     "slug": {
-      "type": "string",
+      "type": "uid",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
+      "targetField": "title",
       "required": true
     },
     "teaser": {
@@ -41,29 +42,19 @@
         }
       }
     },
-    "test": {
-      "type": "richtext",
+    "text_neu": {
+      "type": "blocks",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "sachbearbeiter": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "contact": {
-      "type": "richtext",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+    "sachbearbeiters": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sachbearbeiter.sachbearbeiter",
+      "mappedBy": "sachgebietes"
     },
     "teaser_image": {
       "type": "media",

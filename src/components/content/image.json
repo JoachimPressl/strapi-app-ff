@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_content_images",
+  "info": {
+    "displayName": "Images",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "images": {
+      "type": "component",
+      "component": "layout.image",
+      "repeatable": true,
+      "required": true
+    },
+    "container": {
+      "type": "component",
+      "component": "layout.container",
+      "repeatable": false
+    },
+    "appearance": {
+      "type": "component",
+      "component": "layout.appearance",
+      "repeatable": false,
+      "required": true
+    }
+  },
+  "config": {}
+}

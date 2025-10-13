@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_content_texts",
+  "info": {
+    "displayName": "text",
+    "icon": "filter"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "component",
+      "component": "layout.text",
+      "repeatable": false,
+      "required": true
+    },
+    "appearance": {
+      "type": "component",
+      "component": "layout.appearance",
+      "repeatable": false,
+      "required": true
+    }
+  },
+  "config": {}
+}

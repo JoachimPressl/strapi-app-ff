@@ -1,0 +1,66 @@
+{
+  "collectionName": "components_layout_appearances",
+  "info": {
+    "displayName": "appearance",
+    "icon": "brush"
+  },
+  "options": {},
+  "attributes": {
+    "layout": {
+      "type": "enumeration",
+      "default": "default",
+      "enum": [
+        "default",
+        "primary",
+        "secondary",
+        "tertairy"
+      ]
+    },
+    "frame": {
+      "type": "enumeration",
+      "default": "default",
+      "enum": [
+        "default",
+        "small",
+        "large",
+        "no_frame"
+      ]
+    },
+    "space_before": {
+      "type": "enumeration",
+      "default": "default",
+      "enum": [
+        "default",
+        "extra_small",
+        "small",
+        "medium",
+        "large",
+        "extra_large"
+      ]
+    },
+    "space_after": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "extra_small",
+        "small",
+        "medium",
+        "large",
+        "extra_large"
+      ]
+    },
+    "background": {
+      "type": "enumeration",
+      "default": "default",
+      "enum": [
+        "default",
+        "light",
+        "dark",
+        "primary",
+        "secondary",
+        "tertairy"
+      ]
+    }
+  },
+  "config": {}
+}
