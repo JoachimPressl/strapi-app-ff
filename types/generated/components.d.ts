@@ -163,7 +163,9 @@ export interface LayoutCard extends Struct.ComponentSchema {
     icon: 'book';
   };
   attributes: {
-    card_layout: Schema.Attribute.Enumeration<['default', 'rows 2', 'cols 2']> &
+    card_layout: Schema.Attribute.Enumeration<
+      ['default', 'col-span-2', 'row-span-2']
+    > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'default'>;
     image: Schema.Attribute.Media<'images'>;
