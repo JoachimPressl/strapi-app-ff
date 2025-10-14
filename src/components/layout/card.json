@@ -1,25 +1,27 @@
 {
   "collectionName": "components_layout_cards",
   "info": {
-    "displayName": "card",
+    "displayName": "cardBlock",
     "icon": "book"
   },
   "options": {},
   "attributes": {
-    "text": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "textBlock": {
       "type": "component",
       "component": "layout.text",
       "repeatable": false,
       "required": true
     },
-    "image": {
-      "type": "component",
-      "component": "layout.single-image",
-      "repeatable": false,
-      "required": true
-    },
     "card_layout": {
       "type": "enumeration",
+      "required": true,
       "default": "default",
       "enum": [
         "default",

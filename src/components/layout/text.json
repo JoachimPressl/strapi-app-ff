@@ -1,7 +1,7 @@
 {
   "collectionName": "components_layout_texts",
   "info": {
-    "displayName": "text",
+    "displayName": "textBlock",
     "icon": "filter"
   },
   "options": {},
@@ -9,11 +9,26 @@
     "title": {
       "type": "string"
     },
+    "header_type": {
+      "type": "enumeration",
+      "required": true,
+      "default": "hidden",
+      "enum": [
+        "hidden",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6"
+      ]
+    },
     "text": {
       "type": "blocks"
     },
     "align": {
       "type": "enumeration",
+      "required": true,
       "default": "left",
       "enum": [
         "left",
@@ -21,7 +36,7 @@
         "right"
       ]
     },
-    "buttons": {
+    "buttonBlock": {
       "type": "component",
       "component": "layout.button",
       "repeatable": true

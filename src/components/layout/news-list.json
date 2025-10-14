@@ -1,20 +1,24 @@
 {
   "collectionName": "components_layout_news_lists",
   "info": {
-    "displayName": "news_list",
+    "displayName": "newsBlock",
     "icon": "bulletList"
   },
   "options": {},
   "attributes": {
     "mode": {
       "type": "enumeration",
+      "required": true,
+      "default": "limit",
       "enum": [
         "limit",
         "pages"
       ]
     },
     "pages_or_limit": {
-      "type": "integer"
+      "type": "integer",
+      "required": true,
+      "default": 6
     }
   },
   "config": {}
