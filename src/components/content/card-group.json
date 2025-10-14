@@ -6,19 +6,13 @@
   },
   "options": {},
   "attributes": {
-    "cards": {
+    "cardBlock": {
       "type": "component",
       "component": "layout.card",
       "repeatable": true,
       "required": true
     },
-    "container": {
-      "type": "component",
-      "component": "layout.container",
-      "repeatable": false,
-      "required": true
-    },
-    "appearance": {
+    "frameBlock": {
       "type": "component",
       "component": "layout.appearance",
       "repeatable": false,

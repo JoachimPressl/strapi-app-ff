@@ -6,13 +6,13 @@
   },
   "options": {},
   "attributes": {
-    "text": {
+    "textBlock": {
       "type": "component",
       "component": "layout.text",
       "repeatable": false,
       "required": true
     },
-    "appearance": {
+    "frameBlock": {
       "type": "component",
       "component": "layout.appearance",
       "repeatable": false,

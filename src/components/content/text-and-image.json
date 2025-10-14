@@ -6,25 +6,28 @@
   },
   "options": {},
   "attributes": {
-    "text": {
+    "textBlock": {
       "type": "component",
       "component": "layout.text",
       "repeatable": false,
       "required": true
     },
-    "images": {
+    "imageBlock": {
       "type": "component",
       "component": "layout.image",
       "repeatable": false,
       "required": true
     },
-    "container": {
-      "type": "component",
-      "component": "layout.container",
-      "repeatable": false,
-      "required": true
+    "textBlock_align": {
+      "type": "enumeration",
+      "required": true,
+      "default": "left",
+      "enum": [
+        "left",
+        "right"
+      ]
     },
-    "appearance": {
+    "frameBlock": {
       "type": "component",
       "component": "layout.appearance",
       "repeatable": false,

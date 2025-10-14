@@ -1,24 +1,18 @@
 {
   "collectionName": "components_content_images",
   "info": {
-    "displayName": "Images",
+    "displayName": "image",
     "icon": "picture"
   },
   "options": {},
   "attributes": {
-    "images": {
+    "imageBlock": {
       "type": "component",
       "component": "layout.image",
       "repeatable": false,
       "required": true
     },
-    "container": {
-      "type": "component",
-      "component": "layout.container",
-      "repeatable": false,
-      "required": true
-    },
-    "appearance": {
+    "frameBlock": {
       "type": "component",
       "component": "layout.appearance",
       "repeatable": false,

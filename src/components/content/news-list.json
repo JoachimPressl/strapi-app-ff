@@ -6,19 +6,13 @@
   },
   "options": {},
   "attributes": {
-    "news_list": {
+    "newsBlock": {
       "type": "component",
       "component": "layout.news-list",
       "repeatable": false,
       "required": true
     },
-    "container": {
-      "type": "component",
-      "component": "layout.container",
-      "repeatable": false,
-      "required": true
-    },
-    "appearance": {
+    "frameBlock": {
       "type": "component",
       "component": "layout.appearance",
       "repeatable": false,

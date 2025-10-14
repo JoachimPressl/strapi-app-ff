@@ -1,13 +1,14 @@
 {
   "collectionName": "components_layout_appearances",
   "info": {
-    "displayName": "appearance",
+    "displayName": "frameBlock",
     "icon": "brush"
   },
   "options": {},
   "attributes": {
     "layout": {
       "type": "enumeration",
+      "required": true,
       "default": "default",
       "enum": [
         "default",
@@ -18,16 +19,39 @@
     },
     "frame": {
       "type": "enumeration",
+      "required": true,
+      "default": "default",
+      "enum": [
+        "default",
+        "no_frame"
+      ]
+    },
+    "container": {
+      "type": "enumeration",
+      "required": true,
       "default": "default",
       "enum": [
         "default",
         "small",
-        "large",
-        "no_frame"
+        "large"
+      ]
+    },
+    "background": {
+      "type": "enumeration",
+      "required": true,
+      "default": "default",
+      "enum": [
+        "default",
+        "light",
+        "dark",
+        "primary",
+        "secondary",
+        "tertairy"
       ]
     },
     "space_before": {
       "type": "enumeration",
+      "required": true,
       "default": "default",
       "enum": [
         "default",
@@ -40,6 +64,8 @@
     },
     "space_after": {
       "type": "enumeration",
+      "required": true,
+      "default": "default",
       "enum": [
         "default",
         "extra_small",
@@ -47,18 +73,6 @@
         "medium",
         "large",
         "extra_large"
-      ]
-    },
-    "background": {
-      "type": "enumeration",
-      "default": "default",
-      "enum": [
-        "default",
-        "light",
-        "dark",
-        "primary",
-        "secondary",
-        "tertairy"
       ]
     }
   },

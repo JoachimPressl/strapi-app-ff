@@ -7,11 +7,9 @@ export interface ContentCardGroup extends Struct.ComponentSchema {
     icon: 'dashboard';
   };
   attributes: {
-    appearance: Schema.Attribute.Component<'layout.appearance', false> &
+    cardBlock: Schema.Attribute.Component<'layout.card', true> &
       Schema.Attribute.Required;
-    cards: Schema.Attribute.Component<'layout.card', true> &
-      Schema.Attribute.Required;
-    container: Schema.Attribute.Component<'layout.container', false> &
+    frameBlock: Schema.Attribute.Component<'layout.appearance', false> &
       Schema.Attribute.Required;
   };
 }
@@ -23,11 +21,20 @@ export interface ContentHeadlineImage extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
-    appearance: Schema.Attribute.Component<'layout.appearance', false> &
+    frameBlock: Schema.Attribute.Component<'layout.appearance', false> &
       Schema.Attribute.Required;
-    image: Schema.Attribute.Component<'layout.single-image', false> &
-      Schema.Attribute.Required;
-    text: Schema.Attribute.Component<'layout.text', false> &
+    height: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 100;
+          min: 30;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<70>;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    textBlock: Schema.Attribute.Component<'layout.text', false> &
       Schema.Attribute.Required;
   };
 }
@@ -35,15 +42,13 @@ export interface ContentHeadlineImage extends Struct.ComponentSchema {
 export interface ContentImage extends Struct.ComponentSchema {
   collectionName: 'components_content_images';
   info: {
-    displayName: 'Images';
+    displayName: 'image';
     icon: 'picture';
   };
   attributes: {
-    appearance: Schema.Attribute.Component<'layout.appearance', false> &
+    frameBlock: Schema.Attribute.Component<'layout.appearance', false> &
       Schema.Attribute.Required;
-    container: Schema.Attribute.Component<'layout.container', false> &
-      Schema.Attribute.Required;
-    images: Schema.Attribute.Component<'layout.image', false> &
+    imageBlock: Schema.Attribute.Component<'layout.image', false> &
       Schema.Attribute.Required;
   };
 }
@@ -55,11 +60,9 @@ export interface ContentNewsList extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
-    appearance: Schema.Attribute.Component<'layout.appearance', false> &
+    frameBlock: Schema.Attribute.Component<'layout.appearance', false> &
       Schema.Attribute.Required;
-    container: Schema.Attribute.Component<'layout.container', false> &
-      Schema.Attribute.Required;
-    news_list: Schema.Attribute.Component<'layout.news-list', false> &
+    newsBlock: Schema.Attribute.Component<'layout.news-list', false> &
       Schema.Attribute.Required;
   };
 }
@@ -71,9 +74,9 @@ export interface ContentText extends Struct.ComponentSchema {
     icon: 'filter';
   };
   attributes: {
-    appearance: Schema.Attribute.Component<'layout.appearance', false> &
+    frameBlock: Schema.Attribute.Component<'layout.appearance', false> &
       Schema.Attribute.Required;
-    text: Schema.Attribute.Component<'layout.text', false> &
+    textBlock: Schema.Attribute.Component<'layout.text', false> &
       Schema.Attribute.Required;
   };
 }
@@ -85,42 +88,50 @@ export interface ContentTextAndImage extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
-    appearance: Schema.Attribute.Component<'layout.appearance', false> &
+    frameBlock: Schema.Attribute.Component<'layout.appearance', false> &
       Schema.Attribute.Required;
-    container: Schema.Attribute.Component<'layout.container', false> &
+    imageBlock: Schema.Attribute.Component<'layout.image', false> &
       Schema.Attribute.Required;
-    images: Schema.Attribute.Component<'layout.image', false> &
+    textBlock: Schema.Attribute.Component<'layout.text', false> &
       Schema.Attribute.Required;
-    text: Schema.Attribute.Component<'layout.text', false> &
-      Schema.Attribute.Required;
+    textBlock_align: Schema.Attribute.Enumeration<['left', 'right']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'left'>;
   };
 }
 
 export interface LayoutAppearance extends Struct.ComponentSchema {
   collectionName: 'components_layout_appearances';
   info: {
-    displayName: 'appearance';
+    displayName: 'frameBlock';
     icon: 'brush';
   };
   attributes: {
     background: Schema.Attribute.Enumeration<
       ['default', 'light', 'dark', 'primary', 'secondary', 'tertairy']
     > &
+      Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'default'>;
-    frame: Schema.Attribute.Enumeration<
-      ['default', 'small', 'large', 'no_frame']
-    > &
+    container: Schema.Attribute.Enumeration<['default', 'small', 'large']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'default'>;
+    frame: Schema.Attribute.Enumeration<['default', 'no_frame']> &
+      Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'default'>;
     layout: Schema.Attribute.Enumeration<
       ['default', 'primary', 'secondary', 'tertairy']
     > &
+      Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'default'>;
     space_after: Schema.Attribute.Enumeration<
       ['default', 'extra_small', 'small', 'medium', 'large', 'extra_large']
-    >;
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'default'>;
     space_before: Schema.Attribute.Enumeration<
       ['default', 'extra_small', 'small', 'medium', 'large', 'extra_large']
     > &
+      Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'default'>;
   };
 }
@@ -128,7 +139,7 @@ export interface LayoutAppearance extends Struct.ComponentSchema {
 export interface LayoutButton extends Struct.ComponentSchema {
   collectionName: 'components_layout_buttons';
   info: {
-    displayName: 'button';
+    displayName: 'buttonBlock';
     icon: 'link';
   };
   attributes: {
@@ -136,8 +147,10 @@ export interface LayoutButton extends Struct.ComponentSchema {
     style: Schema.Attribute.Enumeration<
       ['default', 'primary', 'secondary', 'tertairy']
     > &
+      Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'default'>;
     target: Schema.Attribute.Enumeration<['default', 'new window']> &
+      Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'default'>;
     text: Schema.Attribute.String;
   };
@@ -146,42 +159,37 @@ export interface LayoutButton extends Struct.ComponentSchema {
 export interface LayoutCard extends Struct.ComponentSchema {
   collectionName: 'components_layout_cards';
   info: {
-    displayName: 'card';
+    displayName: 'cardBlock';
     icon: 'book';
   };
   attributes: {
-    card_layout: Schema.Attribute.Enumeration<['default', 'rows 2', 'cols 2']> &
-      Schema.Attribute.DefaultTo<'default'>;
-    image: Schema.Attribute.Component<'layout.single-image', false> &
-      Schema.Attribute.Required;
-    text: Schema.Attribute.Component<'layout.text', false> &
-      Schema.Attribute.Required;
-  };
-}
-
-export interface LayoutContainer extends Struct.ComponentSchema {
-  collectionName: 'components_layout_containers';
-  info: {
-    displayName: 'container';
-    icon: 'dashboard';
-  };
-  attributes: {
-    align: Schema.Attribute.Enumeration<['left', 'right']> &
-      Schema.Attribute.DefaultTo<'left'>;
-    type: Schema.Attribute.Enumeration<
-      ['col 1', 'cols 2', 'cols 3', 'cols 4']
+    card_layout: Schema.Attribute.Enumeration<
+      ['default', 'col-span-2', 'row-span-2']
     > &
-      Schema.Attribute.DefaultTo<'cols 2'>;
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'default'>;
+    image: Schema.Attribute.Media<'images'>;
+    textBlock: Schema.Attribute.Component<'layout.text', false> &
+      Schema.Attribute.Required;
   };
 }
 
 export interface LayoutImage extends Struct.ComponentSchema {
   collectionName: 'components_layout_images';
   info: {
-    displayName: 'images';
+    displayName: 'imageBlock';
     icon: 'picture';
   };
   attributes: {
+    cols: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 12;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<1>;
     description: Schema.Attribute.Text;
     images: Schema.Attribute.Media<'images', true>;
   };
@@ -190,37 +198,35 @@ export interface LayoutImage extends Struct.ComponentSchema {
 export interface LayoutNewsList extends Struct.ComponentSchema {
   collectionName: 'components_layout_news_lists';
   info: {
-    displayName: 'news_list';
+    displayName: 'newsBlock';
     icon: 'bulletList';
   };
   attributes: {
-    mode: Schema.Attribute.Enumeration<['limit', 'pages']>;
-    pages_or_limit: Schema.Attribute.Integer;
-  };
-}
-
-export interface LayoutSingleImage extends Struct.ComponentSchema {
-  collectionName: 'components_layout_single_images';
-  info: {
-    displayName: 'single_image';
-    icon: 'picture';
-  };
-  attributes: {
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images'>;
+    mode: Schema.Attribute.Enumeration<['limit', 'pages']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'limit'>;
+    pages_or_limit: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<6>;
   };
 }
 
 export interface LayoutText extends Struct.ComponentSchema {
   collectionName: 'components_layout_texts';
   info: {
-    displayName: 'text';
+    displayName: 'textBlock';
     icon: 'filter';
   };
   attributes: {
     align: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
+      Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'left'>;
-    buttons: Schema.Attribute.Component<'layout.button', true>;
+    buttonBlock: Schema.Attribute.Component<'layout.button', true>;
+    header_type: Schema.Attribute.Enumeration<
+      ['hidden', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'hidden'>;
     text: Schema.Attribute.Blocks;
     title: Schema.Attribute.String;
   };
@@ -238,10 +244,8 @@ declare module '@strapi/strapi' {
       'layout.appearance': LayoutAppearance;
       'layout.button': LayoutButton;
       'layout.card': LayoutCard;
-      'layout.container': LayoutContainer;
       'layout.image': LayoutImage;
       'layout.news-list': LayoutNewsList;
-      'layout.single-image': LayoutSingleImage;
       'layout.text': LayoutText;
     }
   }
