@@ -661,6 +661,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'content.image',
         'content.headline-image',
         'content.card-group',
+        'content.text-and-video',
+        'content.icon-group',
       ]
     >;
     before_content: Schema.Attribute.DynamicZone<
@@ -671,6 +673,20 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'content.image',
         'content.headline-image',
         'content.card-group',
+        'content.text-and-video',
+        'content.icon-group',
+      ]
+    >;
+    content: Schema.Attribute.DynamicZone<
+      [
+        'content.text',
+        'content.text-and-image',
+        'content.image',
+        'content.headline-image',
+        'content.card-group',
+        'content.news-list',
+        'content.text-and-video',
+        'content.icon-group',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -679,16 +695,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
       Schema.Attribute.Private;
-    main_content: Schema.Attribute.DynamicZone<
-      [
-        'content.text',
-        'content.text-and-image',
-        'content.image',
-        'content.headline-image',
-        'content.card-group',
-        'content.news-list',
-      ]
-    >;
     pages: Schema.Attribute.Relation<'oneToMany', 'api::page.page'>;
     publishedAt: Schema.Attribute.DateTime;
     seo_description: Schema.Attribute.Text;
