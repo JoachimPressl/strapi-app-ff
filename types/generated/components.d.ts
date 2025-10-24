@@ -58,7 +58,7 @@ export interface ContentIconGroup extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<3>;
     frameBlock: Schema.Attribute.Component<'layout.appearance', false> &
       Schema.Attribute.Required;
-    iconBlock: Schema.Attribute.Component<'layout.icon-block', false> &
+    iconBlock: Schema.Attribute.Component<'layout.icon-block', true> &
       Schema.Attribute.Required;
   };
 }
@@ -135,7 +135,7 @@ export interface ContentTextAndVideo extends Struct.ComponentSchema {
       Schema.Attribute.Required;
     textBlock: Schema.Attribute.Component<'layout.text', false> &
       Schema.Attribute.Required;
-    textBlock_align: Schema.Attribute.Enumeration<['left', 'right']> &
+    textBlock_align_video: Schema.Attribute.Enumeration<['left', 'right']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'left'>;
     videoBlock: Schema.Attribute.Component<'layout.video-block', false> &

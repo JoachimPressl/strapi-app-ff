@@ -9,7 +9,7 @@
     "iconBlock": {
       "type": "component",
       "component": "layout.icon-block",
-      "repeatable": false,
+      "repeatable": true,
       "required": true
     },
     "cols": {

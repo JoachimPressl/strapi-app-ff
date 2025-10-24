@@ -18,7 +18,7 @@
       "repeatable": false,
       "required": true
     },
-    "textBlock_align": {
+    "textBlock_align_video": {
       "type": "enumeration",
       "required": true,
       "default": "left",
