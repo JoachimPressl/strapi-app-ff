@@ -39,6 +39,30 @@ export interface ContentHeadlineImage extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentIconGroup extends Struct.ComponentSchema {
+  collectionName: 'components_content_icon_groups';
+  info: {
+    displayName: 'icon_group';
+    icon: 'hashtag';
+  };
+  attributes: {
+    cols: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 9;
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<3>;
+    frameBlock: Schema.Attribute.Component<'layout.appearance', false> &
+      Schema.Attribute.Required;
+    iconBlock: Schema.Attribute.Component<'layout.icon-block', false> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface ContentImage extends Struct.ComponentSchema {
   collectionName: 'components_content_images';
   info: {
@@ -100,6 +124,25 @@ export interface ContentTextAndImage extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentTextAndVideo extends Struct.ComponentSchema {
+  collectionName: 'components_content_text_and_videos';
+  info: {
+    displayName: 'text_and_video';
+    icon: 'play';
+  };
+  attributes: {
+    frameBlock: Schema.Attribute.Component<'layout.appearance', false> &
+      Schema.Attribute.Required;
+    textBlock: Schema.Attribute.Component<'layout.text', false> &
+      Schema.Attribute.Required;
+    textBlock_align: Schema.Attribute.Enumeration<['left', 'right']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'left'>;
+    videoBlock: Schema.Attribute.Component<'layout.video-block', false> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface LayoutAppearance extends Struct.ComponentSchema {
   collectionName: 'components_layout_appearances';
   info: {
@@ -127,12 +170,12 @@ export interface LayoutAppearance extends Struct.ComponentSchema {
       ['default', 'extra_small', 'small', 'medium', 'large', 'extra_large']
     > &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'default'>;
+      Schema.Attribute.DefaultTo<'medium'>;
     space_before: Schema.Attribute.Enumeration<
       ['default', 'extra_small', 'small', 'medium', 'large', 'extra_large']
     > &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'default'>;
+      Schema.Attribute.DefaultTo<'medium'>;
   };
 }
 
@@ -163,14 +206,24 @@ export interface LayoutCard extends Struct.ComponentSchema {
     icon: 'book';
   };
   attributes: {
-    card_layout: Schema.Attribute.Enumeration<
-      ['default', 'col-span-2', 'row-span-2']
-    > &
+    card_layout: Schema.Attribute.Enumeration<['default', 'wide', 'tall']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'default'>;
     image: Schema.Attribute.Media<'images'>;
     textBlock: Schema.Attribute.Component<'layout.text', false> &
       Schema.Attribute.Required;
+  };
+}
+
+export interface LayoutIconBlock extends Struct.ComponentSchema {
+  collectionName: 'components_layout_icon_blocks';
+  info: {
+    displayName: 'iconBlock';
+    icon: 'hashtag';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images'>;
+    textBlock: Schema.Attribute.Component<'layout.text', false>;
   };
 }
 
@@ -185,7 +238,8 @@ export interface LayoutImage extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
-          max: 12;
+          max: 9;
+          min: 1;
         },
         number
       > &
@@ -232,21 +286,36 @@ export interface LayoutText extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutVideoBlock extends Struct.ComponentSchema {
+  collectionName: 'components_layout_video_blocks';
+  info: {
+    displayName: 'videoBlock';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    url: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'content.card-group': ContentCardGroup;
       'content.headline-image': ContentHeadlineImage;
+      'content.icon-group': ContentIconGroup;
       'content.image': ContentImage;
       'content.news-list': ContentNewsList;
       'content.text': ContentText;
       'content.text-and-image': ContentTextAndImage;
+      'content.text-and-video': ContentTextAndVideo;
       'layout.appearance': LayoutAppearance;
       'layout.button': LayoutButton;
       'layout.card': LayoutCard;
+      'layout.icon-block': LayoutIconBlock;
       'layout.image': LayoutImage;
       'layout.news-list': LayoutNewsList;
       'layout.text': LayoutText;
+      'layout.video-block': LayoutVideoBlock;
     }
   }
 }

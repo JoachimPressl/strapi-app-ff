@@ -31,7 +31,18 @@
       "relation": "oneToMany",
       "target": "api::page.page"
     },
-    "content": {
+    "before_content": {
+      "type": "dynamiczone",
+      "components": [
+        "content.text",
+        "content.text-and-image",
+        "content.news-list",
+        "content.image",
+        "content.headline-image",
+        "content.card-group"
+      ]
+    },
+    "main_content": {
       "type": "dynamiczone",
       "components": [
         "content.text",
@@ -40,6 +51,17 @@
         "content.headline-image",
         "content.card-group",
         "content.news-list"
+      ]
+    },
+    "after_content": {
+      "type": "dynamiczone",
+      "components": [
+        "content.text",
+        "content.text-and-image",
+        "content.news-list",
+        "content.image",
+        "content.headline-image",
+        "content.card-group"
       ]
     }
   }

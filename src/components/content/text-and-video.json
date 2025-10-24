@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_content_text_and_videos",
+  "info": {
+    "displayName": "text_and_video",
+    "icon": "play"
+  },
+  "options": {},
+  "attributes": {
+    "textBlock": {
+      "type": "component",
+      "component": "layout.text",
+      "repeatable": false,
+      "required": true
+    },
+    "videoBlock": {
+      "type": "component",
+      "component": "layout.video-block",
+      "repeatable": false,
+      "required": true
+    },
+    "textBlock_align": {
+      "type": "enumeration",
+      "required": true,
+      "default": "left",
+      "enum": [
+        "left",
+        "right"
+      ]
+    },
+    "frameBlock": {
+      "type": "component",
+      "component": "layout.appearance",
+      "repeatable": false,
+      "required": true
+    }
+  },
+  "config": {}
+}

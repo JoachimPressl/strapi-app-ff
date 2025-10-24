@@ -52,7 +52,7 @@
     "space_before": {
       "type": "enumeration",
       "required": true,
-      "default": "default",
+      "default": "medium",
       "enum": [
         "default",
         "extra_small",
@@ -65,7 +65,7 @@
     "space_after": {
       "type": "enumeration",
       "required": true,
-      "default": "default",
+      "default": "medium",
       "enum": [
         "default",
         "extra_small",

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_layout_icon_blocks",
+  "info": {
+    "displayName": "iconBlock",
+    "icon": "hashtag"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "textBlock": {
+      "type": "component",
+      "component": "layout.text",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

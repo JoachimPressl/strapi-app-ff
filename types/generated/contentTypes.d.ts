@@ -653,7 +653,33 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    content: Schema.Attribute.DynamicZone<
+    after_content: Schema.Attribute.DynamicZone<
+      [
+        'content.text',
+        'content.text-and-image',
+        'content.news-list',
+        'content.image',
+        'content.headline-image',
+        'content.card-group',
+      ]
+    >;
+    before_content: Schema.Attribute.DynamicZone<
+      [
+        'content.text',
+        'content.text-and-image',
+        'content.news-list',
+        'content.image',
+        'content.headline-image',
+        'content.card-group',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
+      Schema.Attribute.Private;
+    main_content: Schema.Attribute.DynamicZone<
       [
         'content.text',
         'content.text-and-image',
@@ -663,12 +689,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'content.news-list',
       ]
     >;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
-      Schema.Attribute.Private;
     pages: Schema.Attribute.Relation<'oneToMany', 'api::page.page'>;
     publishedAt: Schema.Attribute.DateTime;
     seo_description: Schema.Attribute.Text;

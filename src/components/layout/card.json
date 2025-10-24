@@ -25,8 +25,8 @@
       "default": "default",
       "enum": [
         "default",
-        "col-span-2",
-        "row-span-2"
+        "wide",
+        "tall"
       ]
     }
   },
